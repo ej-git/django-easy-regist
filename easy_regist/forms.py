@@ -7,6 +7,7 @@ from .models import User
 
 
 class RegisterForm(UserCreationForm):
+    """ユーザー登録用フォーム."""
 
     class Meta:
         model = User
@@ -34,6 +35,7 @@ class RegisterForm(UserCreationForm):
 
 
 class UpdateForm(forms.ModelForm):
+    """ユーザー情報更新用フォーム."""
 
     class Meta:
         model = User
@@ -49,6 +51,7 @@ class UpdateForm(forms.ModelForm):
 
 
 class LoginForm(AuthenticationForm):
+    """ログインフォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -60,6 +63,7 @@ class LoginForm(AuthenticationForm):
 
 
 class ForgetPasswordForm(PasswordResetForm):
+    """パスワード忘れたときのフォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -68,6 +72,7 @@ class ForgetPasswordForm(PasswordResetForm):
 
 
 class ChangePasswordForm(PasswordChangeForm):
+    """パスワード変更用フォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -77,6 +82,7 @@ class ChangePasswordForm(PasswordChangeForm):
 
 
 class PasswordConfirmForm(SetPasswordForm):
+    """パスワード再設定用フォーム(パスワード忘れて再設定)."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

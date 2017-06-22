@@ -8,6 +8,8 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class UserManager(BaseUserManager):
+    """ユーザーマネージャー."""
+
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
@@ -40,6 +42,8 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    """カスタムユーザーモデル."""
+
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=150, blank=True)
