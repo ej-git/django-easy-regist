@@ -21,7 +21,11 @@ Requirement
 Quick start
 -----------
 
-1. settings.pyの編集 ::
+1. インストール ::
+
+    pip install -U https://github.com/naritotakizawa/django-easy-regist/archive/master.tar.gz
+
+2. settings.pyの編集 ::
 
     INSTALLED_APPS = [
         ...
@@ -42,10 +46,10 @@ Quick start
     # カスタムなユーザーモデルを利用する
     AUTH_USER_MODEL = 'easy_regist.User'
 
-2. urls.pyに足す::
+3. urls.pyに足す::
 
     url(r'^regist/', include('easy_regist.urls')),
 
-3. python manage.py migrate　でカスタムUserモデルを追加する.
+4. python manage.py migrate　でカスタムUserモデルを追加する.
 
-4. http://127.0.0.1:8000/regist/ へ.
+5. http://127.0.0.1:8000/regist/ へ.
