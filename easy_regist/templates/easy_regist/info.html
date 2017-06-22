@@ -1,0 +1,49 @@
+{% extends "easy_regist/base.html" %}
+{% block content %}
+<div class="container">
+  <div class="center">
+    <h1>ユーザ情報</h1>
+    <p class="lead">ログイン中のユーザデータを表示します</p>
+  </div>
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>名前・説明</th>
+        <th>templateでの呼び出し方</th>
+        <th>ログインユーザのデータ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>メール</td>
+        <td>{% verbatim %} {{ user.email }} {% endverbatim %} </td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>姓</td>
+        <td>{% verbatim %} {{ user.first_name }} {% endverbatim %} </td>
+        <td>{{ user.first_name }}</td>
+      </tr>
+      <tr>
+        <td>名</td>
+        <td>{% verbatim %} {{ user.last_name }} {% endverbatim %} </td>
+        <td>{{ user.last_name }}</td>
+      </tr>
+      <tr>
+        <td>adminサイトにアクセスできるか</td>
+        <td>{% verbatim %} {{ user.is_staff }} {% endverbatim %} </td>
+        <td>{{ user.is_staff }}</td>
+      </tr>
+      <tr>
+        <td>アカウントが有効か（ログインできるか）</td>
+        <td>{% verbatim %} {{ user.is_active }} {% endverbatim %} </td>
+        <td>{{ user.is_active }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="{% url 'easy_regist:user_update' user.pk %}" class="btn btn-outline-primary">ユーザ情報の変更</a>
+  <a href="{% url 'easy_regist:change_password' %}" class="btn btn-outline-primary">パスワードの変更</a>
+
+</div><!-- /.container -->
+{% endblock %}

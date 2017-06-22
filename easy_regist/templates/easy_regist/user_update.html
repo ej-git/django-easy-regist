@@ -1,0 +1,48 @@
+{% extends "easy_regist/base.html" %}
+{% block content %}
+<div class="container">
+  <div class="center">
+    <h1>ユーザ情報</h1>
+    <p class="lead">ログイン中のユーザデータを表示します</p>
+  </div>
+
+  <form action="" method="POST">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>項目</th>
+        <th>入力欄</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>メールアドレス</td>
+        <td>
+          {{ form.email }}
+          {{ form.email.errors }}
+        </td>
+      </tr>
+      <tr>
+        <td>姓</td>
+        <td>
+          {{ form.first_name }}
+          {{ form.first_name.errors }}
+        </td>
+      </tr>
+      <tr>
+        <td>名</td>
+        <td>
+          {{ form.last_name }}
+          {{ form.last_name.errors }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-primary">変更</button>
+  <a href="{% url 'easy_regist:mypage' %}" class="btn btn-outline-primary">戻る</a>
+  </form>
+  
+
+</div><!-- /.container -->
+{% endblock %}

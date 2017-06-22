@@ -1,0 +1,2 @@
+{{ user.first_name }} {{ user.last_name }}さん、以下からパスワードを再登録して
+{{ protocol}}://{{ domain }}{% url 'easy_regist:password_reset_confirm' uidb64=uid token=token %}
