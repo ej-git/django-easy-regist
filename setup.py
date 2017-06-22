@@ -3,10 +3,11 @@ import sys
 from setuptools import find_packages, setup
 from setuptools.command.test import test as TestCommand
 
+
 class DjangoTest(TestCommand):
 
     def run_tests(self):
-        #import here, cause outside the eggs aren't loaded
+        # import here, cause outside the eggs aren't loaded
         import django
         from django.conf import settings
         from django.test.utils import get_runner
@@ -48,5 +49,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    cmdclass = {'test': DjangoTest},
+    cmdclass={'test': DjangoTest},
 )
