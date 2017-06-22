@@ -1,17 +1,19 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
+from django.contrib.auth.forms import (
+    UserCreationForm, AuthenticationForm, PasswordChangeForm,
+    PasswordResetForm, SetPasswordForm
+)
 from .models import User
 
 
 class RegisterForm(UserCreationForm):
+    """ユーザー登録用フォーム."""
 
     class Meta:
         model = User
         fields = (
-            "email", "password1", "password2",
-            "first_name", "last_name",
+            'email', 'password1', 'password2',
+            'first_name', 'last_name',
         )
 
     def __init__(self, *args, **kwargs):
@@ -33,6 +35,7 @@ class RegisterForm(UserCreationForm):
 
 
 class UpdateForm(forms.ModelForm):
+    """ユーザー情報更新用フォーム."""
 
     class Meta:
         model = User
@@ -48,6 +51,7 @@ class UpdateForm(forms.ModelForm):
 
 
 class LoginForm(AuthenticationForm):
+    """ログインフォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -59,6 +63,7 @@ class LoginForm(AuthenticationForm):
 
 
 class ForgetPasswordForm(PasswordResetForm):
+    """パスワード忘れたときのフォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -67,6 +72,7 @@ class ForgetPasswordForm(PasswordResetForm):
 
 
 class ChangePasswordForm(PasswordChangeForm):
+    """パスワード変更用フォーム."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -76,6 +82,7 @@ class ChangePasswordForm(PasswordChangeForm):
 
 
 class PasswordConfirmForm(SetPasswordForm):
+    """パスワード再設定用フォーム(パスワード忘れて再設定)."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
